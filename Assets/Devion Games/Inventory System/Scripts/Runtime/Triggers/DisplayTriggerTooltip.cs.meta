@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 95ff8949b55037043a6183d61fd8dcff
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Inventory System/Scripts/Runtime/Triggers/DisplayTriggerTooltip.cs
+  uploadId: 420205

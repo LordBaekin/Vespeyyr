@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 048130e21b35a7649823b717fc2b15bc
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Quest System/Example/Prefabs/UI/Quest Journal.prefab
+  uploadId: 420205

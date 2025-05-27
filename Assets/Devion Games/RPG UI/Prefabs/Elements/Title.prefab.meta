@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: d6ca6dbb49d441e428bd94638b85c80e
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/RPG UI/Prefabs/Elements/Title.prefab
+  uploadId: 420205

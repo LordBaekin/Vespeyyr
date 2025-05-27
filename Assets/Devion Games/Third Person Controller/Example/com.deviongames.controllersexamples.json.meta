@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 5b0211d220fd8f2459fa4b70c23b71f8
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Third Person Controller/Example/com.deviongames.controllersexamples.json
+  uploadId: 420205

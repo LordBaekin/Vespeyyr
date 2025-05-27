@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 9ed061e7b4ce01541ae0e5b00bfc8e60
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 317709
+  packageName: "Tag Debug \u2013 Control Logs & Color by Tag"
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/TagDebug/Readme Snippet.txt
+  uploadId: 754416

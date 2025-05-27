@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 40c8a156bd44a4045b462c35e6a19777
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Inventory System/Scripts/Runtime/Items/Actions/Inventory/Cooldown.cs
+  uploadId: 420205

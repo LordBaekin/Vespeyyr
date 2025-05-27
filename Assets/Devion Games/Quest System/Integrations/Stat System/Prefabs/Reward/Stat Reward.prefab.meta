@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 87bf446dac87fb644af6a76d3d474ee0
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Quest System/Integrations/Stat System/Prefabs/Reward/Stat
+    Reward.prefab
+  uploadId: 420205

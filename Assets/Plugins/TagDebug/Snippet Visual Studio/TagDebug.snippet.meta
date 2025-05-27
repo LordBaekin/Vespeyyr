@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 8f012b140f5af5e48bd19b680617b54d
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 317709
+  packageName: "Tag Debug \u2013 Control Logs & Color by Tag"
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/TagDebug/Snippet Visual Studio/TagDebug.snippet
+  uploadId: 754416

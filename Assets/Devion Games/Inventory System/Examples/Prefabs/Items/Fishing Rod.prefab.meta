@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 889b596f02ef6534690cb9390fb35ee0
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Inventory System/Examples/Prefabs/Items/Fishing
+    Rod.prefab
+  uploadId: 420205

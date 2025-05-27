@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: d9acf9019a3eb354a84c7d71e270a7ee
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Quest System/Scripts/Runtime/Triggers/Actions/UpdateQuestIndicators.cs
+  uploadId: 420205

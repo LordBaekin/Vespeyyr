@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 767c2c350208504478cc7f4a286a4b9b
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Inventory System/Examples/Databases/Damage Data/RangedDamageData.asset
+  uploadId: 420205

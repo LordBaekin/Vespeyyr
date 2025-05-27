@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ff3d80df2ac28fe4fbade82347e30b4e
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Inventory System/Examples/Databases/Damage Data/MagicDamageData.asset
+  uploadId: 420205

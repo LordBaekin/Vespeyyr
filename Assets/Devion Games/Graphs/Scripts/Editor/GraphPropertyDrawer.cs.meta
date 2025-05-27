@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: d68ce29679675c041af7b04823186b38
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Graphs/Scripts/Editor/GraphPropertyDrawer.cs
+  uploadId: 420205

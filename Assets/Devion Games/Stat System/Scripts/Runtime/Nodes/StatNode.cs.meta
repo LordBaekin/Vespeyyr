@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 71657909a1ac6db47bf8ce25fb0fdae5
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Stat System/Scripts/Runtime/Nodes/StatNode.cs
+  uploadId: 420205

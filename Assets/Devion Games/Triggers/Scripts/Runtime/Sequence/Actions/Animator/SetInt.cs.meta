@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 0b2269f706e565b4ab1e40d5bcb6f9fd
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Triggers/Scripts/Runtime/Sequence/Actions/Animator/SetInt.cs
+  uploadId: 420205

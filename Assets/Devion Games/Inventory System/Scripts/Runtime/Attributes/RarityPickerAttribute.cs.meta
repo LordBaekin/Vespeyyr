@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 36b79117b032e854fb3205d073bb1bb7
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Inventory System/Scripts/Runtime/Attributes/RarityPickerAttribute.cs
+  uploadId: 420205

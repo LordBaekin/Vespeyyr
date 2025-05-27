@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f3765970f0dc1354e932563d2693ec78
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Quest System/Integrations/Inventory System/Prefabs/Rewards/Currency
+    Reward.prefab
+  uploadId: 420205

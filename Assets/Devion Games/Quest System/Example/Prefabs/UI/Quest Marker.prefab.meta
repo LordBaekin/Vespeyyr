@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: b1307b10747d8d44fbd8c79eb77897a7
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Quest System/Example/Prefabs/UI/Quest Marker.prefab
+  uploadId: 420205

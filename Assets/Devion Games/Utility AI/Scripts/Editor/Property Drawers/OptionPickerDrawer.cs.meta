@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: a4f4912631942c0488b9d50576a982af
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Utility AI/Scripts/Editor/Property Drawers/OptionPickerDrawer.cs
+  uploadId: 420205

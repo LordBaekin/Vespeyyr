@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: a54460ab4ee603d45b8c10a28409e08a
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Character System/Scripts/Editor/CharacterSystemMenu.cs
+  uploadId: 420205

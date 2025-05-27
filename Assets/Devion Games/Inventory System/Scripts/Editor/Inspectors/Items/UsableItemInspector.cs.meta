@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: b706c034ce0a6fa42a61e3b85bfb91e0
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Inventory System/Scripts/Editor/Inspectors/Items/UsableItemInspector.cs
+  uploadId: 420205

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 75d9053ad8d01f34fbb75a4d4bea7189
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Inventory System/Examples/Particle Effects/ShurikenMagic/Scripts/SM_Rotate.cs
+  uploadId: 420205

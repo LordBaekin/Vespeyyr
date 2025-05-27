@@ -1,0 +1,104 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fae7d5eef9ccf7c4d8a6367cb8296c78, type: 3}
+  m_Name: DebugTagSettings
+  m_EditorClassIdentifier: 
+  settings:
+  - tagName: ServerWorld
+    color: {r: 0.23233369, g: 0.4097249, b: 0.33127394, a: 1}
+    isActive: 1
+    isEssential: 0
+  - tagName: FlowManager
+    color: {r: 0.24327198, g: 0.9926028, b: 0.34112933, a: 1}
+    isActive: 1
+    isEssential: 0
+  - tagName: UI
+    color: {r: 0.7714603, g: 0.33025303, b: 0.79714787, a: 1}
+    isActive: 1
+    isEssential: 0
+  - tagName: VespeyrLoginRelay
+    color: {r: 0.068621404, g: 0.16622223, b: 0.1937963, a: 1}
+    isActive: 1
+    isEssential: 0
+  - tagName: Login
+    color: {r: 0.11294104, g: 0.1857058, b: 0.086156376, a: 1}
+    isActive: 1
+    isEssential: 0
+  - tagName: CoherenceWorldBridge
+    color: {r: 0.44248897, g: 0.5912003, b: 0.4255107, a: 1}
+    isActive: 1
+    isEssential: 0
+  - tagName: SplashScreen
+    color: {r: 0.2359027, g: 0.78079677, b: 0.6788805, a: 1}
+    isActive: 1
+    isEssential: 0
+  - tagName: Character
+    color: {r: 0.8205111, g: 0.12352289, b: 0.48425728, a: 1}
+    isActive: 1
+    isEssential: 0
+  - tagName: Network
+    color: {r: 0.32886985, g: 0.6708072, b: 0.7088364, a: 1}
+    isActive: 1
+    isEssential: 0
+  - tagName: Untagged
+    color: {r: 0, g: 0.764151, b: 0.20523272, a: 1}
+    isActive: 1
+    isEssential: 0
+  - tagName: Respawn
+    color: {r: 0.03818715, g: 0.54682094, b: 0.60285443, a: 1}
+    isActive: 1
+    isEssential: 0
+  - tagName: Finish
+    color: {r: 0.8938223, g: 0.9302751, b: 0.16469122, a: 1}
+    isActive: 1
+    isEssential: 0
+  - tagName: EditorOnly
+    color: {r: 0.60639375, g: 0.24600723, b: 0.285167, a: 1}
+    isActive: 1
+    isEssential: 0
+  - tagName: MainCamera
+    color: {r: 0.046781544, g: 0.32564464, b: 0.4798655, a: 1}
+    isActive: 1
+    isEssential: 0
+  - tagName: Player
+    color: {r: 0.87988174, g: 0.76592314, b: 0.4938268, a: 1}
+    isActive: 1
+    isEssential: 0
+  - tagName: GameController
+    color: {r: 0.30309096, g: 0.8194984, b: 0.76533926, a: 1}
+    isActive: 1
+    isEssential: 0
+  - tagName: Fire
+    color: {r: 0.488133, g: 0.020757558, b: 0.43008333, a: 1}
+    isActive: 1
+    isEssential: 0
+  - tagName: ServerUI
+    color: {r: 0.95079553, g: 0.41850597, b: 0.9734273, a: 1}
+    isActive: 1
+    isEssential: 0
+  - tagName: LoginUI
+    color: {r: 0.973117, g: 0.3093336, b: 0.8395827, a: 1}
+    isActive: 1
+    isEssential: 0
+  - tagName: SplashScreenUI
+    color: {r: 0.83086, g: 0.071197994, b: 0.8676896, a: 1}
+    isActive: 1
+    isEssential: 0
+  - tagName: StartMenuUI
+    color: {r: 0.3529282, g: 0.30574062, b: 0.18732823, a: 1}
+    isActive: 1
+    isEssential: 0
+  - tagName: DataStorageDebugger
+    color: {r: 0, g: 1, b: 1, a: 1}
+    isActive: 1
+    isEssential: 0
+  presets: []

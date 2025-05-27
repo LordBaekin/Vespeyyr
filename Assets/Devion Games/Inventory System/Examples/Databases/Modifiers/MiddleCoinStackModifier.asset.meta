@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 3ee6c47a014529047b6a10d1f6fab53f
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Inventory System/Examples/Databases/Modifiers/MiddleCoinStackModifier.asset
+  uploadId: 420205

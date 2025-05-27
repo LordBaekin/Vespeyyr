@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 468d8cb38be4be14495aa74b82052186
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Inventory System/Scripts/Runtime/Equipment Handler/MeleeWeapon.cs
+  uploadId: 420205

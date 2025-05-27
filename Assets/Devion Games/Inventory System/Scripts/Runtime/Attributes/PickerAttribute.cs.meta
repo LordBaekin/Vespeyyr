@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: bba1edf536bba4b4f9449802a9206ee3
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Inventory System/Scripts/Runtime/Attributes/PickerAttribute.cs
+  uploadId: 420205

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: b77e26d10c8456b4cbecadf7d2053af1
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Stat System/Examples/Prefabs/UI/Statbar.prefab
+  uploadId: 420205

@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 977b2a69ce1818b4b883f6d1a6612873
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Quest System/Integrations/Inventory System/Scripts/Runtime/ItemReward.cs
+  uploadId: 420205

@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: fd9da58c6ae4db140969c37bb02cbfe8
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Utility AI/Integrations/Stat System/Scripts/Runtime/IsDead.cs
+  uploadId: 420205

@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: cb7871b049a7ff84aa885b195646100d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Inventory System/Scripts/Editor/Inspectors/AttachmentPropertyDrawer.cs
+  uploadId: 420205

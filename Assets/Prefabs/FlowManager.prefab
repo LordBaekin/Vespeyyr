@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7662887199124570014
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3758978827209611590}
+  - component: {fileID: 8692926060931773303}
+  m_Layer: 0
+  m_Name: FlowManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3758978827209611590
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7662887199124570014}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 870.9272, y: 175.71423, z: -830.0461}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8692926060931773303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7662887199124570014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 680ff07f5d1c1a54db3a8e8ee3bca2f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  splashDisplay: {fileID: 0}
+  splashTextures:
+  - {fileID: 2800000, guid: 769a78fb11914a5458be0a1f3ee1dbf9, type: 3}
+  - {fileID: 2800000, guid: 229b6e0e19bc7a5419c11dcbf2eb6cdc, type: 3}
+  - {fileID: 2800000, guid: ce7e2e29fcdb2194b97e2890ac3de284, type: 3}
+  - {fileID: 2800000, guid: 5ec2d14396f6a5342b8909850ed5fa47, type: 3}
+  splashInterval: 5
+  splashPanel: {fileID: 0}
+  loginPanel: {fileID: 0}
+  serverPanel: {fileID: 0}
+  loginButton: {fileID: 0}
+  usernameInput: {fileID: 0}
+  passwordInput: {fileID: 0}
+  listContent: {fileID: 0}
+  entryPrefab: {fileID: 0}
+  backButton: {fileID: 0}
+  nextButton: {fileID: 0}
+  selectCharacterScene: Select Character
+  mainScene: Main

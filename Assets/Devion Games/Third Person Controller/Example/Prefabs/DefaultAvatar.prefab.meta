@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 07c05240867455c47887199078a82e2c
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Third Person Controller/Example/Prefabs/DefaultAvatar.prefab
+  uploadId: 420205

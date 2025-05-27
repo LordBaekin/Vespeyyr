@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 377bf12c75e44cc43997951acfb0f0ef
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Quest System/Example/Prefabs/UI/Quest Selection.prefab
+  uploadId: 420205

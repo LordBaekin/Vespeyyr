@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 42e7f46d0e5a84171a3909479c1646ba
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Standard Assets/Water (Pro Only)/Water4/Sources/Scripts/GerstnerDisplace.cs
+  uploadId: 420205

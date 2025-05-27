@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ca461851dfacfb14e84266ca01f62690
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Inventory System/Examples/Prefabs/Character/Third
+    Person Camera.prefab
+  uploadId: 420205

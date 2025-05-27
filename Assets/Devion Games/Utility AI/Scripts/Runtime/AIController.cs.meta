@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: f9d192d28104ce54c8584f71fa7a5d1a
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Utility AI/Scripts/Runtime/AIController.cs
+  uploadId: 420205

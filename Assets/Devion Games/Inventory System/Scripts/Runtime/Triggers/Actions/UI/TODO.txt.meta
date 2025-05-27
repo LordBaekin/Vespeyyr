@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 62696722ce617834db405a110fc4dca4
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Inventory System/Scripts/Runtime/Triggers/Actions/UI/TODO.txt
+  uploadId: 420205

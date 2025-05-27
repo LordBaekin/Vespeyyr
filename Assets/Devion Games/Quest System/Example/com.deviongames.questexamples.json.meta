@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 65943b6006603a94ea30678c0e31ad55
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Quest System/Example/com.deviongames.questexamples.json
+  uploadId: 420205

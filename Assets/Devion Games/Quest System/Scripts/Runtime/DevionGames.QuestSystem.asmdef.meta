@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: f932633e89332314dac2cabb4cf243bc
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Quest System/Scripts/Runtime/DevionGames.QuestSystem.asmdef
+  uploadId: 420205

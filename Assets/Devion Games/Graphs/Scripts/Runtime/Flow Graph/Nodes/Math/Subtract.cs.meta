@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 41c263e463108c24ca1d9328f0ddb8af
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Graphs/Scripts/Runtime/Flow Graph/Nodes/Math/Subtract.cs
+  uploadId: 420205

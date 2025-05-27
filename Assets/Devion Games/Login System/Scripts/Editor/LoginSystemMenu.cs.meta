@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 445f10e5141c96d47bdf0338d28beac1
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Login System/Scripts/Editor/LoginSystemMenu.cs
+  uploadId: 420205

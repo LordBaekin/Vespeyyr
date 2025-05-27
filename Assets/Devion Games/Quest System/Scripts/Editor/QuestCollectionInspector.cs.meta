@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: b52bd7f6e0cec2e45b0637a8bfee12fa
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Quest System/Scripts/Editor/QuestCollectionInspector.cs
+  uploadId: 420205

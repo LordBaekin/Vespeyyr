@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 0f8046b6fcc8d5f49a4bd4162d40feba
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Stat System/com.deviongames.stats.json
+  uploadId: 420205

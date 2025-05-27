@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 0fb5c9bb3f4054341a670a3db1e510b5
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Inventory System/Scripts/Editor/PropertyDrawers/EquipmentPickerDrawer.cs
+  uploadId: 420205

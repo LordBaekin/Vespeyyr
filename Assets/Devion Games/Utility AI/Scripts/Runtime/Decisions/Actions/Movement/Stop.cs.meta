@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 9c77bb74c3524634f84043be623ed6a7
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Utility AI/Scripts/Runtime/Decisions/Actions/Movement/Stop.cs
+  uploadId: 420205

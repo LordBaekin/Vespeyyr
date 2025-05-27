@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 2b88e1367d909ce4f89d360c4b4933e8
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Triggers/Scripts/Runtime/Sequence/Actions/GameObject/SendMessageUpwards.cs
+  uploadId: 420205

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a35f11c0f40103b44b8c3c980d622db5
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Inventory System/Examples/Animations/Text.controller
+  uploadId: 420205

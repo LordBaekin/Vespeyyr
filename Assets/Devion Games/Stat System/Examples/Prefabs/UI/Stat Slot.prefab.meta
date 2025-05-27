@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: dc40529c1f31ff84cbcc35d9d586ebcb
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Stat System/Examples/Prefabs/UI/Stat Slot.prefab
+  uploadId: 420205

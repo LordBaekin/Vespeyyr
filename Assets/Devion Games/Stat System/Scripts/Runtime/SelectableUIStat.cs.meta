@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 619131029f0909447b041074b83247bb
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Stat System/Scripts/Runtime/SelectableUIStat.cs
+  uploadId: 420205

@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: fc2c9c2a12af8f247b6f357a2d442d2f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Utility AI/Scripts/Runtime/Decision.cs
+  uploadId: 420205

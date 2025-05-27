@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: a6d9ba7a05c313449917ba01d5927300
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Quest System/Scripts/Runtime/QuestTalkWindow.cs
+  uploadId: 420205

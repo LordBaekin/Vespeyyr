@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 3df60decac2d1984aa95576af6c530f5
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Stat System/Scripts/Editor/StatPickerDrawer.cs
+  uploadId: 420205

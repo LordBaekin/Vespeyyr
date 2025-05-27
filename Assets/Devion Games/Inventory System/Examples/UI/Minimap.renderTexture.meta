@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 178718a0253e80e4abad143ac8c6f66a
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Inventory System/Examples/UI/Minimap.renderTexture
+  uploadId: 420205

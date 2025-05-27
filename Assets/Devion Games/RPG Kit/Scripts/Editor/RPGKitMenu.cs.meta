@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: a826a0b954de5ca438a93a75b8c3496d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/RPG Kit/Scripts/Editor/RPGKitMenu.cs
+  uploadId: 420205

@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 5337f6db1e366414c8e79d59370f461e
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Third Person Controller/Scripts/Runtime/Controller/MotionTrigger.cs
+  uploadId: 420205

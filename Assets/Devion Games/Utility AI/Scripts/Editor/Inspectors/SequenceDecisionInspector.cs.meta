@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: e83e4b12e451024448d70a73d0de9282
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Utility AI/Scripts/Editor/Inspectors/SequenceDecisionInspector.cs
+  uploadId: 420205

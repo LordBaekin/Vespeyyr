@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: d0107c0a799692741b72d1e4ebb97014
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Character System/Scripts/Runtime/DevionGames.CharacterSystem.asmdef
+  uploadId: 420205

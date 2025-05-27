@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c9b54f89a9d123947abc85e520b243f3
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Inventory System/Examples/Databases/Damage Data/MagicDamageAirBurst.asset
+  uploadId: 420205

@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 4587a117bb7ba9146a2c5bbc2c3024a8
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Utility AI/Scripts/Editor/UtilityAIMenu.cs
+  uploadId: 420205

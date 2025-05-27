@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 7e11b191bda03244cab010a91ca9c4d9
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Inventory System/Scripts/Runtime/DevionGames.InventorySystem.asmdef
+  uploadId: 420205

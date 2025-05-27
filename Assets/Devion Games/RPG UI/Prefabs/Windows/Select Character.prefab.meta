@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 78cd8eb48ec73c14ca877fa0c8744a96
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/RPG UI/Prefabs/Windows/Select Character.prefab
+  uploadId: 420205

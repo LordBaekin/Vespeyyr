@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 7dafc94ffbf46524cac462a8eb3429f5
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Graphs/Scripts/Editor/Resources/FormulaSkin.guiskin
+  uploadId: 420205

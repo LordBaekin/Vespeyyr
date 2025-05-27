@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: caa4712265fb87f48917ca9e4be3350a
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Inventory System/Examples/Prefabs/Items/Shield.prefab
+  uploadId: 420205

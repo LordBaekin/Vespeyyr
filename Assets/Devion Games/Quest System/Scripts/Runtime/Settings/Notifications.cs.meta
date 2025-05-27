@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: dfb3726c0da5bd9419f884b821ef7c0c
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Quest System/Scripts/Runtime/Settings/Notifications.cs
+  uploadId: 420205

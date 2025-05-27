@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: f3cd37095bdc6524b9f56978d6a81363
+timeCreated: 1492612169
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Third Person Controller/Example/Animator Controllers/Third
+    Person Controller.controller
+  uploadId: 420205

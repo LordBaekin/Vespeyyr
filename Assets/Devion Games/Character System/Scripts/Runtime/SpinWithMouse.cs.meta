@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 8799b18d4e64f674e80f8f14855563b8
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Character System/Scripts/Runtime/SpinWithMouse.cs
+  uploadId: 420205

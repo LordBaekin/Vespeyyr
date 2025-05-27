@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: a741b779c63d4a84a91fa3bbd8f372f1
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Triggers/Scripts/Runtime/Sequence/Actions/Wait.cs
+  uploadId: 420205

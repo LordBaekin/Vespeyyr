@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: d84b5332917dd0c45863a2c4634e5bc9
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 19644
+  packageName: RPG Kit
+  packageVersion: 3.2.1
+  assetPath: Assets/Devion Games/Triggers/Scripts/Runtime/Sequence/Actions/Animator/SetTrigger.cs
+  uploadId: 420205
