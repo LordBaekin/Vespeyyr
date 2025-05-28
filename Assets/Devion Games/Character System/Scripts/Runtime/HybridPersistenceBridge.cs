@@ -200,44 +200,27 @@ public class HybridPersistenceBridge : MonoBehaviour
     }
 
     /// <summary>
-    /// Save character data (matches your existing CharacterSystem pattern)
+    /// Save character data (local only)
     /// </summary>
     public void SaveCharacterData(string characterJson)
     {
-        Debug.Log($"[HybridBridge] Saving character: world={currentWorldKey}, char={currentCharacterId}");
+        Debug.Log($"[HybridBridge] Saving character locally: world={currentWorldKey}, char={currentCharacterId}");
 
-        if (Provider != SaveProviderSelectorSO.SaveProvider.Server)
-        {
-            // Save to local PlayerPrefs (existing format)
-            string accountKey = PlayerPrefs.GetString("Account", "Player");
-            PlayerPrefs.SetString(accountKey, characterJson);
-            PlayerPrefs.Save();
-        }
-
-        if (Provider != SaveProviderSelectorSO.SaveProvider.PlayerPrefs)
-        {
-            // Save to server
-            StartCoroutine(SaveCharacterToServer(characterJson));
-        }
+        string accountKey = PlayerPrefs.GetString("Account", "Player");
+        PlayerPrefs.SetString(accountKey, characterJson);
+        PlayerPrefs.Save();
     }
 
     /// <summary>
-    /// Load character data (matches your existing CharacterSystem pattern)
+    /// Load character data (local only)
     /// </summary>
     public void LoadCharacterData(System.Action<string> callback)
     {
-        Debug.Log($"[HybridBridge] Loading character: world={currentWorldKey}, char={currentCharacterId}");
+        Debug.Log($"[HybridBridge] Loading character locally: world={currentWorldKey}, char={currentCharacterId}");
 
-        if (Provider == SaveProviderSelectorSO.SaveProvider.Server)
-        {
-            StartCoroutine(LoadCharacterFromServer(callback));
-        }
-        else
-        {
-            string accountKey = PlayerPrefs.GetString("Account", "Player");
-            string data = PlayerPrefs.GetString(accountKey, "");
-            callback(data);
-        }
+        string accountKey = PlayerPrefs.GetString("Account", "Player");
+        string data = PlayerPrefs.GetString(accountKey, "");
+        callback(data);
     }
 
     // ===================== GENERIC STRING SAVE/LOAD =====================
@@ -428,22 +411,7 @@ public class HybridPersistenceBridge : MonoBehaviour
         }));
     }
 
-    private IEnumerator SaveCharacterToServer(string characterJson)
-    {
-        var payload = new
-        {
-            world_key = currentWorldKey,
-            character_data = characterJson
-        };
-
-        yield return StartCoroutine(PostToServer("/characters", payload));
-    }
-
-    private IEnumerator LoadCharacterFromServer(System.Action<string> callback)
-    {
-        string url = $"{apiRoot}/characters/by-id/{currentCharacterId}";
-        yield return StartCoroutine(GetFromServer(url, callback));
-    }
+   
 
     private IEnumerator SaveStringToServer(string key, string value)
     {

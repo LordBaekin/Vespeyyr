@@ -5,12 +5,10 @@ using UnityEngine;
 using UnityEngine.Assertions;
 using System;
 
-
 namespace DevionGames.CharacterSystem
 {
     public class CharacterManager : MonoBehaviour
     {
-
         /// Don't destroy this object instance when loading new scenes.
         /// </summary>
         public bool dontDestroyOnLoad = true;
@@ -28,7 +26,6 @@ namespace DevionGames.CharacterSystem
                 return m_Current;
             }
         }
-
 
         [SerializeField]
         private CharacterDatabase m_Database = null;
@@ -112,9 +109,11 @@ namespace DevionGames.CharacterSystem
         }
 
         private Character m_SelectedCharacter;
-        public Character SelectedCharacter {
+        public Character SelectedCharacter
+        {
             get { return this.m_SelectedCharacter; }
         }
+
         /// <summary>
         /// Awake is called when the script instance is being loaded.
         /// </summary>
@@ -122,14 +121,15 @@ namespace DevionGames.CharacterSystem
         {
             if (CharacterManager.m_Current != null)
             {
-               // Debug.Log("Multiple Character Manager in scene...this is not supported. Destroying instance!");
+                // Debug.Log("Multiple Character Manager in scene...this is not supported. Destroying instance!");
                 Destroy(gameObject);
                 return;
             }
             else
             {
                 CharacterManager.m_Current = this;
-                if (dontDestroyOnLoad){
+                if (dontDestroyOnLoad)
+                {
                     if (transform.parent != null)
                     {
                         if (CharacterManager.DefaultSettings.debugMessages)
@@ -138,7 +138,42 @@ namespace DevionGames.CharacterSystem
                     }
                     DontDestroyOnLoad(gameObject);
                 }
+
+                // Register for data processing event from interceptor
+                EventHandler.Register<string>("OnCharacterManagerProcessData", ProcessCharacterData);
+
                 Debug.Log("Character Manager initialized.");
+            }
+        }
+
+        private void OnDestroy()
+        {
+            EventHandler.Unregister<string>("OnCharacterManagerProcessData", ProcessCharacterData);
+        }
+
+        /// <summary>
+        /// Process character data (called by interceptor for local loading)
+        /// </summary>
+        private static void ProcessCharacterData(string data)
+        {
+            if (string.IsNullOrEmpty(data))
+            {
+                Debug.Log("[CharacterManager] No character data to process");
+                return;
+            }
+
+            List<object> l = MiniJSON.Deserialize(data) as List<object>;
+            for (int i = 0; i < l.Count; i++)
+            {
+                Dictionary<string, object> characterData = l[i] as Dictionary<string, object>;
+                EventHandler.Execute("OnCharacterDataLoaded", characterData);
+            }
+
+            List<Character> list = JsonSerializer.Deserialize<Character>(data);
+            for (int i = 0; i < list.Count; i++)
+            {
+                Character character = list[i];
+                EventHandler.Execute("OnCharacterLoaded", character);
             }
         }
 
@@ -146,7 +181,7 @@ namespace DevionGames.CharacterSystem
         {
             CharacterManager.current.m_SelectedCharacter = selected;
 
-            // ✅ Get both character ID and name properly
+            // Get both character ID and name properly
             string characterId = selected.FindProperty("CharacterId")?.stringValue;
             string characterName = selected.CharacterName;  // This is the player-entered name
 
@@ -157,7 +192,7 @@ namespace DevionGames.CharacterSystem
                 Debug.LogWarning($"[CharacterManager] No CharacterId found for character '{characterName}', using name as ID");
             }
 
-            // ✅ Ensure world context is set first
+            // Ensure world context is set first
             string worldKey = ServerWorldEvents.CurrentWorldKey;
             if (string.IsNullOrEmpty(worldKey))
             {
@@ -175,10 +210,11 @@ namespace DevionGames.CharacterSystem
             Debug.Log($"  - characterId: '{characterId}'");
             Debug.Log($"  - characterName: '{characterName}'");
             Debug.Log($"  - selected.CharacterName: '{selected.CharacterName}'");
-            // ✅ Now set character context with both ID and name
+
+            // Now set character context with both ID and name
             DevionGamesAdapter.SetCharacterContext(characterId, characterName);
 
-            // ✅ Also ensure auth token is set
+            // Also ensure auth token is set
             string token = PlayerPrefs.GetString("jwt_token", "");
             if (!string.IsNullOrEmpty(token))
             {
@@ -189,7 +225,7 @@ namespace DevionGames.CharacterSystem
             PlayerPrefs.SetString("Player", selected.CharacterName);
             PlayerPrefs.SetString("Profession", selected.Name);
 
-            string scene = selected.FindProperty("Scene").stringValue;
+            string scene = selected.FindProperty("Scene")?.stringValue;
             if (string.IsNullOrEmpty(scene))
             {
                 scene = CharacterManager.DefaultSettings.playScene;
@@ -202,81 +238,86 @@ namespace DevionGames.CharacterSystem
             UnityEngine.SceneManagement.SceneManager.LoadScene(scene);
         }
 
-
         private static void ChangedActiveScene(UnityEngine.SceneManagement.Scene current, UnityEngine.SceneManagement.Scene next)
         {
             Vector3 position = CharacterManager.current.m_SelectedCharacter.FindProperty("Spawnpoint").vector3Value;
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             //Player already in scene
-            if (player != null) {
+            if (player != null)
+            {
                 //Is it the player prefab we selected?
-                if (player.name == CharacterManager.current.m_SelectedCharacter.Prefab.name) {
+                if (player.name == CharacterManager.current.m_SelectedCharacter.Prefab.name)
+                {
                     return;
                 }
                 DestroyImmediate(player);
             }
 
-
             player = GameObject.Instantiate(CharacterManager.current.m_SelectedCharacter.Prefab, position, Quaternion.identity);
             player.name = player.name.Replace("(Clone)", "").Trim();
         }
 
-
         public static void CreateCharacter(Character character)
         {
-            string key = PlayerPrefs.GetString(CharacterManager.SavingLoading.accountKey);
-            string serializedCharacterData = PlayerPrefs.GetString(key);
-            List<Character> list = JsonSerializer.Deserialize<Character>(serializedCharacterData);
+            // Fire event to allow server interception for creation
+            EventHandler.Execute("OnCharacterManagerCreateCharacter", character);
 
-            for (int i = 0; i < list.Count; i++)
-            {
-                if (list[i].CharacterName == character.CharacterName)
+            // Use DevionGamesAdapter for local storage (interceptor handles server if needed)
+            DevionGamesAdapter.LoadCharacterData((existingData) => {
+                List<Character> list = string.IsNullOrEmpty(existingData) ?
+                    new List<Character>() :
+                    JsonSerializer.Deserialize<Character>(existingData);
+
+                // Check for duplicate names
+                for (int i = 0; i < list.Count; i++)
                 {
-                    EventHandler.Execute("OnFailedToCreateCharacter", character);
-                    return;
+                    if (list[i].CharacterName == character.CharacterName)
+                    {
+                        EventHandler.Execute("OnFailedToCreateCharacter", character);
+                        return;
+                    }
                 }
-            }
 
-            list.Add(character);
-            string data = JsonSerializer.Serialize(list.ToArray());
-            PlayerPrefs.SetString(key, data);
-            EventHandler.Execute("OnCharacterCreated", character);
+                // Add new character
+                list.Add(character);
+                string data = JsonSerializer.Serialize(list.ToArray());
+
+                // Save using DevionGamesAdapter (local only)
+                DevionGamesAdapter.SaveCharacterData(data);
+
+                EventHandler.Execute("OnCharacterCreated", character);
+            });
         }
 
-        public static void LoadCharacters() {
-            string key = PlayerPrefs.GetString(CharacterManager.SavingLoading.accountKey);
-
-            string data = PlayerPrefs.GetString(key);
-            if (string.IsNullOrEmpty(data)) return;
-
-            List<object> l = MiniJSON.Deserialize(data) as List<object>;
-            for (int i = 0; i < l.Count; i++) {
-                Dictionary<string, object> characterData = l[i] as Dictionary<string, object>;
-                EventHandler.Execute("OnCharacterDataLoaded",characterData);
-            }
-            List<Character> list = JsonSerializer.Deserialize<Character>(data);
-            for (int i = 0; i < list.Count; i++)
-            {
-                Character character = list[i];
-                EventHandler.Execute("OnCharacterLoaded", character);
-            }
+        public static void LoadCharacters()
+        {
+            // Fire event to allow server interception for loading
+            EventHandler.Execute("OnCharacterManagerLoadCharacters");
         }
 
-        public static void DeleteCharacter(Character character) {
-            string key = PlayerPrefs.GetString(CharacterManager.SavingLoading.accountKey);
+        public static void DeleteCharacter(Character character)
+        {
+            // Fire event to allow server interception for deletion
+            EventHandler.Execute("OnCharacterManagerDeleteCharacter", character);
 
-            string serializedCharacterData = PlayerPrefs.GetString(key);
-            List<Character> list = JsonSerializer.Deserialize<Character>(serializedCharacterData);
+            // Use DevionGamesAdapter for local storage (interceptor handles server if needed)
+            DevionGamesAdapter.LoadCharacterData((existingData) => {
+                if (string.IsNullOrEmpty(existingData)) return;
 
-            string data = JsonSerializer.Serialize(list.Where(x => x.CharacterName != character.CharacterName).ToArray());
-            PlayerPrefs.SetString(key, data);
+                List<Character> list = JsonSerializer.Deserialize<Character>(existingData);
 
-            DeleteInventorySystemForCharacter(character.CharacterName);
-            DeleteStatSystemForCharacter(character.CharacterName);
-            EventHandler.Execute("OnCharacterDeleted", character);
+                // Remove character and save updated list
+                string data = JsonSerializer.Serialize(list.Where(x => x.CharacterName != character.CharacterName).ToArray());
+                DevionGamesAdapter.SaveCharacterData(data);
+
+                DeleteInventorySystemForCharacter(character.CharacterName);
+                DeleteStatSystemForCharacter(character.CharacterName);
+                EventHandler.Execute("OnCharacterDeleted", character);
+            });
         }
 
-        private static void DeleteInventorySystemForCharacter(string character) {
+        private static void DeleteInventorySystemForCharacter(string character)
+        {
             PlayerPrefs.DeleteKey(character + ".UI");
             List<string> scenes = PlayerPrefs.GetString(character + ".Scenes").Split(';').ToList();
             scenes.RemoveAll(x => string.IsNullOrEmpty(x));
@@ -287,7 +328,8 @@ namespace DevionGames.CharacterSystem
             PlayerPrefs.DeleteKey(character + ".Scenes");
         }
 
-        private static void DeleteStatSystemForCharacter(string character) {
+        private static void DeleteStatSystemForCharacter(string character)
+        {
             PlayerPrefs.DeleteKey(character + ".Stats");
             List<string> keys = PlayerPrefs.GetString("StatSystemSavedKeys").Split(';').ToList();
             keys.RemoveAll(x => string.IsNullOrEmpty(x));

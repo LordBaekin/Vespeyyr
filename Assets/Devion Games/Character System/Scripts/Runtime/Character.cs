@@ -123,6 +123,7 @@ namespace DevionGames.CharacterSystem
             data.Add("Name", Name);
             data.Add("Gender", (int)Gender);
             data.Add("CharacterName", CharacterName);
+
             Dictionary<string, object> mProperties = new Dictionary<string, object>();
             foreach (ObjectProperty property in this.m_Properties)
             {

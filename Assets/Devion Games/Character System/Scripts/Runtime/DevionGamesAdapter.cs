@@ -251,6 +251,9 @@ public static class DevionGamesAdapter
 
     // ===================== CHARACTER SYSTEM ADAPTER =====================
 
+    /// <summary>
+    /// Save character data using hybrid persistence
+    /// </summary>
     public static void SaveCharacterData(string characterJson)
     {
         if (ShouldUseHybridBridge())
@@ -267,6 +270,9 @@ public static class DevionGamesAdapter
         }
     }
 
+    /// <summary>
+    /// Load character data using hybrid persistence
+    /// </summary>
     public static void LoadCharacterData(System.Action<string> callback)
     {
         if (ShouldUseHybridBridge())
@@ -343,13 +349,11 @@ public static class DevionGamesAdapter
 
     // ===================== PUBLIC API FOR YOUR FLOW MANAGER =====================
 
-    
     /// <summary>
     /// Set character context with both ID and name explicitly
     /// </summary>
     public static void SetCharacterContext(string characterId, string characterName)
     {
-
         Debug.Log($"[DevionGamesAdapter] SetCharacterContext called with: ID='{characterId}', Name='{characterName}'");
         if (Bridge != null)
         {
@@ -452,7 +456,6 @@ public static class DevionGamesAdapter
         return SaveProviderSelectorSO.SaveProvider.PlayerPrefs;
     }
 
-
     public static void SaveString(string key, string value)
     {
         if (ShouldUseHybridBridge())
@@ -478,13 +481,4 @@ public static class DevionGamesAdapter
             callback(value);
         }
     }
-
-
-
-
-
-
-
-
-
 }
