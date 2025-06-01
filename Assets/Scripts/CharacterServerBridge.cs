@@ -3,6 +3,7 @@ using UnityEngine;
 using Assets.Scripts.Data;
 using Vespeyr.Network;
 using DevionGames.CharacterSystem;
+using TagDebugSystem;
 
 /// <summary>
 /// Response from server when saving a character
@@ -20,13 +21,11 @@ public class SaveCharacterResponse
 /// </summary>
 public static class CharacterServerBridge
 {
+    private const string TAG = "CharacterServer";
+
     /// <summary>
     /// Create a character on the server and return the server-generated ID
     /// </summary>
-    /// <param name="characterName">Player-entered character name</param>
-    /// <param name="className">Character class/profession</param>
-    /// <param name="genderString">Character gender as string</param>
-    /// <returns>Server-generated character ID (GUID string) or null if failed</returns>
     public static async Task<string> CreateCharacterOnServer(string characterName, string className, string genderString)
     {
         try
@@ -36,12 +35,12 @@ public static class CharacterServerBridge
 
             if (string.IsNullOrEmpty(authToken))
             {
-                Debug.LogError("[CharacterServerBridge] No auth token found! Cannot create character on server.");
+                TD.Error(TAG, "No auth token found! Cannot create character on server.");
                 return null;
             }
             if (string.IsNullOrEmpty(worldKey))
             {
-                Debug.LogError("[CharacterServerBridge] No world key found! Cannot create character on server.");
+                TD.Error(TAG, "No world key found! Cannot create character on server.");
                 return null;
             }
 
@@ -49,39 +48,39 @@ public static class CharacterServerBridge
             var characterDTO = new CharacterDTO
             {
                 CharacterName = characterName,
-                Name = className, // This is the class/profession  
+                Name = className, // This is the class/profession
                 Gender = genderString,
                 Level = 1,
                 // Add other default properties as needed
             };
 
-            Debug.Log($"[CharacterServerBridge] Creating character '{characterName}' ({className}) on server in world '{worldKey}'...");
+            TD.Info(TAG, $"Creating character '{characterName}' ({className}) on server in world '{worldKey}'...");
 
             // Call server API
             string response = await DVGApiBridge.SaveCharacter(worldKey, characterDTO);
 
             if (string.IsNullOrEmpty(response))
             {
-                Debug.LogError("[CharacterServerBridge] Server returned empty response!");
+                TD.Error(TAG, "Server returned empty response!");
                 return null;
             }
 
-            // Parse server response using the correct response class
+            // Parse server response
             var serverResponse = JsonUtility.FromJson<SaveCharacterResponse>(response);
             if (!string.IsNullOrEmpty(serverResponse.characterId))
             {
-                Debug.Log($"[CharacterServerBridge] Character created successfully with server ID: {serverResponse.characterId}");
+                TD.Info(TAG, $"Character created successfully with server ID: {serverResponse.characterId}");
                 return serverResponse.characterId;
             }
             else
             {
-                Debug.LogError($"[CharacterServerBridge] Server response missing characterId: {response}");
+                TD.Error(TAG, $"Server response missing characterId: {response}");
                 return null;
             }
         }
         catch (System.Exception ex)
         {
-            Debug.LogError($"[CharacterServerBridge] Server character creation failed: {ex.Message}");
+            TD.Error(TAG, $"Server character creation failed: {ex.Message}");
             return null;
         }
     }

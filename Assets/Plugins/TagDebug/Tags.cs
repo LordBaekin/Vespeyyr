@@ -50,6 +50,7 @@ namespace TagDebugSystem
         public const string Stats = "Stats";
         public const string StatSystem = "StatSystem";
         public const string StatsManager = "StatsManager";
+        public const string CharacterSystem = "CharacterSystem";
 
         // Data Management Category
         public const string SaveSystem = "SaveSystem";

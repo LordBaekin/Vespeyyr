@@ -9,6 +9,10 @@ TagManager:
   - LoginUI
   - SplashScreenUI
   - StartMenuUI
+  - Registration
+  - RecoverPassword
+  - Dialog Box
+  - Ladder
   layers:
   - Default
   - TransparentFX

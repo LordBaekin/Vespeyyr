@@ -22,9 +22,9 @@ namespace DevionGames.LoginSystem.Configuration
         [InspectorLabel("Login Window", "Name of the login window.")]
         public string loginWindowName = "Login";
         [InspectorLabel("Registration Window", "Name of the registration window.")]
-        public string registrationWindowName = "Registration";
+        public string registrationWindowName = "RegistrationUI";
         [InspectorLabel("Recover Password Window", "Name of the recover password window.")]
-        public string recoverPasswordWindowName = "Recover Password";
+        public string recoverPasswordWindowName = "RecoverPasswordUI";
         [InspectorLabel("Dialog Box", "Name of the dialog box widget.")]
         public string dialogBoxName = "Dialog Box";
         [InspectorLabel("Tooltip", "Name of the tooltip widget.")]

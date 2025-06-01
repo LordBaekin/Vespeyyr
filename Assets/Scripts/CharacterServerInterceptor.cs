@@ -4,6 +4,7 @@ using UnityEngine;
 using DevionGames.CharacterSystem;
 using DevionGames;
 using Assets.Scripts.Data;
+using TagDebugSystem;
 
 /// <summary>
 /// Intercepts character operations and handles server persistence
@@ -21,17 +22,17 @@ public class CharacterServerInterceptor : MonoBehaviour
     public bool debugCharacterConversion = true;
 
     private bool isLoadingFromServer = false;
+    private const string TAG = "CharacterServer";
 
     private void Awake()
     {
         if (enableServerIntercept)
         {
-            // Register for character system events
             EventHandler.Register("OnCharacterManagerLoadCharacters", InterceptCharacterLoad);
             EventHandler.Register<Character>("OnCharacterManagerCreateCharacter", InterceptCharacterCreate);
             EventHandler.Register<Character>("OnCharacterManagerDeleteCharacter", InterceptCharacterDelete);
 
-            Debug.Log("[CharacterServerInterceptor] Registered for character events");
+            TD.Info(TAG, "Registered for character events", this);
         }
     }
 
@@ -45,19 +46,15 @@ public class CharacterServerInterceptor : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Intercept character loading and handle server operations
-    /// </summary>
     private async void InterceptCharacterLoad()
     {
-        if (isLoadingFromServer) return; // Prevent recursion
+        if (isLoadingFromServer) return;
 
         var provider = DevionGamesAdapter.GetCurrentProvider();
 
         if (provider == SaveProviderSelectorSO.SaveProvider.Server)
         {
-            // Server only mode - load from server
-            Debug.Log("[CharacterServerInterceptor] Server-only mode: loading from server");
+            TD.Info(TAG, "Server-only mode: loading from server", this);
 
             isLoadingFromServer = true;
             try
@@ -66,7 +63,7 @@ public class CharacterServerInterceptor : MonoBehaviour
             }
             catch (System.Exception ex)
             {
-                Debug.LogError($"[CharacterServerInterceptor] Server load failed: {ex.Message}");
+                TD.Error(TAG, $"Server load failed: {ex.Message}", this);
             }
             finally
             {
@@ -75,8 +72,7 @@ public class CharacterServerInterceptor : MonoBehaviour
         }
         else if (provider == SaveProviderSelectorSO.SaveProvider.Both)
         {
-            // Both mode - try server first, then let normal flow handle local
-            Debug.Log("[CharacterServerInterceptor] Both mode: trying server first");
+            TD.Info(TAG, "Both mode: trying server first", this);
 
             isLoadingFromServer = true;
             try
@@ -85,15 +81,13 @@ public class CharacterServerInterceptor : MonoBehaviour
 
                 if (!serverSuccess)
                 {
-                    Debug.Log("[CharacterServerInterceptor] Server load failed, allowing normal local load to proceed");
-                    // Let the normal CharacterManager.LoadCharacters continue with local loading
+                    TD.Warning(TAG, "Server load failed, allowing normal local load to proceed", this);
                     CallNormalLoadCharacters();
                 }
             }
             catch (System.Exception ex)
             {
-                Debug.LogError($"[CharacterServerInterceptor] Server load failed: {ex.Message}");
-                // Let the normal CharacterManager.LoadCharacters continue with local loading
+                TD.Error(TAG, $"Server load failed: {ex.Message}", this);
                 CallNormalLoadCharacters();
             }
             finally
@@ -103,39 +97,30 @@ public class CharacterServerInterceptor : MonoBehaviour
         }
         else
         {
-            // PlayerPrefs only mode - let normal flow proceed
-            Debug.Log("[CharacterServerInterceptor] PlayerPrefs-only mode: delegating to normal load");
+            TD.Info(TAG, "PlayerPrefs-only mode: delegating to normal load", this);
             CallNormalLoadCharacters();
         }
     }
 
-    /// <summary>
-    /// Call the normal CharacterManager local loading process
-    /// </summary>
     private void CallNormalLoadCharacters()
     {
         DevionGamesAdapter.LoadCharacterData((data) => {
             if (string.IsNullOrEmpty(data))
             {
-                Debug.Log("[CharacterServerInterceptor] No local character data found");
+                TD.Info(TAG, "No local character data found", this);
                 return;
             }
-
-            // Fire the normal processing event that CharacterManager would handle
             EventHandler.Execute("OnCharacterManagerProcessData", data);
         });
     }
 
-    /// <summary>
-    /// Intercept character creation and save to server
-    /// </summary>
     private async void InterceptCharacterCreate(Character character)
     {
         var provider = DevionGamesAdapter.GetCurrentProvider();
 
         if (provider != SaveProviderSelectorSO.SaveProvider.PlayerPrefs)
         {
-            Debug.Log($"[CharacterServerInterceptor] Saving created character to server: {character.CharacterName}");
+            TD.Info(TAG, $"Saving created character to server: {character.CharacterName}", this);
 
             try
             {
@@ -144,26 +129,23 @@ public class CharacterServerInterceptor : MonoBehaviour
                 {
                     var dto = ConvertToDTO(character);
                     await DVGApiBridge.SaveCharacter(worldKey, dto);
-                    Debug.Log($"[CharacterServerInterceptor] Character {character.CharacterName} saved to server successfully");
+                    TD.Info(TAG, $"Character {character.CharacterName} saved to server successfully", this);
                 }
             }
             catch (System.Exception ex)
             {
-                Debug.LogError($"[CharacterServerInterceptor] Failed to save character to server: {ex.Message}");
+                TD.Error(TAG, $"Failed to save character to server: {ex.Message}", this);
             }
         }
     }
 
-    /// <summary>
-    /// Intercept character deletion and remove from server
-    /// </summary>
     private async void InterceptCharacterDelete(Character character)
     {
         var provider = DevionGamesAdapter.GetCurrentProvider();
 
         if (provider != SaveProviderSelectorSO.SaveProvider.PlayerPrefs)
         {
-            Debug.Log($"[CharacterServerInterceptor] Deleting character from server: {character.CharacterName}");
+            TD.Info(TAG, $"Deleting character from server: {character.CharacterName}", this);
 
             try
             {
@@ -175,30 +157,27 @@ public class CharacterServerInterceptor : MonoBehaviour
                     bool success = await DVGApiBridge.DeleteCharacter(worldKey, characterId);
                     if (success)
                     {
-                        Debug.Log($"[CharacterServerInterceptor] Character {characterId} deleted from server successfully");
+                        TD.Info(TAG, $"Character {characterId} deleted from server successfully", this);
                     }
                     else
                     {
-                        Debug.LogWarning($"[CharacterServerInterceptor] Failed to delete character {characterId} from server");
+                        TD.Warning(TAG, $"Failed to delete character {characterId} from server", this);
                     }
                 }
             }
             catch (System.Exception ex)
             {
-                Debug.LogError($"[CharacterServerInterceptor] Failed to delete character from server: {ex.Message}");
+                TD.Error(TAG, $"Failed to delete character from server: {ex.Message}", this);
             }
         }
     }
 
-    /// <summary>
-    /// Load characters from server and inject into DevionGames system
-    /// </summary>
     private async System.Threading.Tasks.Task<bool> LoadCharactersFromServer()
     {
         string worldKey = ServerWorldEvents.CurrentWorldKey ?? PlayerPrefs.GetString("selected_server", "");
         if (string.IsNullOrEmpty(worldKey))
         {
-            Debug.LogWarning("[CharacterServerInterceptor] No world key available for server load");
+            TD.Warning(TAG, "No world key available for server load", this);
             return false;
         }
 
@@ -208,201 +187,136 @@ public class CharacterServerInterceptor : MonoBehaviour
 
             if (serverCharacters != null && serverCharacters.Count > 0)
             {
-                Debug.Log($"[CharacterServerInterceptor] Loaded {serverCharacters.Count} characters from server");
+                TD.Info(TAG, $"Loaded {serverCharacters.Count} characters from server", this);
 
-                // Convert server DTOs to Character objects and inject into DevionGames system
                 foreach (var dto in serverCharacters)
                 {
                     var character = ConvertFromDTO(dto);
 
                     if (character != null)
                     {
-                        // Fire the character loaded event to populate the UI
                         EventHandler.Execute("OnCharacterLoaded", character);
                     }
                     else
                     {
-                        Debug.LogError($"[CharacterServerInterceptor] Failed to convert character: {dto.CharacterName}");
+                        TD.Error(TAG, $"Failed to convert character: {dto.CharacterName}", this);
                     }
                 }
                 return true;
             }
             else
             {
-                Debug.Log("[CharacterServerInterceptor] No characters found on server");
+                TD.Info(TAG, "No characters found on server", this);
                 return false;
             }
         }
         catch (System.Exception ex)
         {
-            Debug.LogError($"[CharacterServerInterceptor] Server load exception: {ex.Message}");
+            TD.Error(TAG, $"Server load exception: {ex.Message}", this);
             return false;
         }
     }
 
-    /// <summary>
-    /// Convert server DTO to a live Character instance by cloning the DB template,
-    /// then applying all server fields (name, id, level, xp, gender).
-    /// </summary>
     private Character ConvertFromDTO(CharacterDTO dto)
     {
-        // 1) Debug header
         if (debugCharacterConversion)
         {
-            Debug.Log($"[CharacterServerInterceptor] Converting character: {dto.CharacterName} " +
-                      $"(ClassKey: {dto.Name ?? dto.Class ?? dto.PrefabName}, Gender: {dto.Gender})");
+            TD.Info(TAG, $"Converting character: {dto.CharacterName} (ClassKey: {dto.Name ?? dto.Class ?? dto.PrefabName}, Gender: {dto.Gender})", this);
         }
 
-        // 2) Figure out which key to use for template lookup
         string classKey =
             !string.IsNullOrEmpty(dto.Name) ? dto.Name :
             !string.IsNullOrEmpty(dto.Class) ? dto.Class :
             !string.IsNullOrEmpty(dto.PrefabName) ? dto.PrefabName :
             "Unknown";
 
-        // 3) Parse gender
         DevionGames.CharacterSystem.Gender genderValue = DevionGames.CharacterSystem.Gender.Male;
-        if (!string.IsNullOrEmpty(dto.Gender) &&
-            !System.Enum.TryParse(dto.Gender, true, out genderValue))
+        if (!string.IsNullOrEmpty(dto.Gender) && !System.Enum.TryParse(dto.Gender, true, out genderValue))
         {
-            Debug.LogWarning($"[CharacterServerInterceptor] Invalid gender '{dto.Gender}' for {dto.CharacterName}, defaulting to Male");
+            TD.Warning(TAG, $"Invalid gender '{dto.Gender}' for {dto.CharacterName}, defaulting to Male", this);
             genderValue = DevionGames.CharacterSystem.Gender.Male;
         }
 
-        // 4) Attempt to find an exact template in your DB
         Character template = FindBestMatchingTemplate(classKey, genderValue);
         Character character;
 
         if (template != null)
         {
-            // Clone the template so we carry over its SO.name, Prefab, portrait, description, etc.
             character = ScriptableObject.Instantiate(template);
             if (debugCharacterConversion)
             {
-                Debug.Log($"[CharacterServerInterceptor] Instantiated template for {classKey}/{genderValue}: {template.name}");
+                TD.Info(TAG, $"Instantiated template for {classKey}/{genderValue}: {template.name}", this);
             }
         }
         else
         {
-            Debug.LogWarning($"[CharacterServerInterceptor] No template for {classKey}/{genderValue}. Trying gender fallback.");
+            TD.Warning(TAG, $"No template for {classKey}/{genderValue}. Trying gender fallback.", this);
 
-            // Try any template of same gender
-            var fallback = CharacterManager.Database.items
-                                         .FirstOrDefault(x => x.Gender == genderValue);
+            var fallback = CharacterManager.Database.items.FirstOrDefault(x => x.Gender == genderValue);
             if (fallback != null)
             {
                 character = ScriptableObject.Instantiate(fallback);
-                Debug.Log($"[CharacterServerInterceptor] Using fallback template from {fallback.name} for {dto.CharacterName}");
+                TD.Info(TAG, $"Using fallback template from {fallback.name} for {dto.CharacterName}", this);
             }
             else
             {
-                // As a last resort, create a blank Character SO
                 character = ScriptableObject.CreateInstance<Character>();
-                Debug.LogError($"[CharacterServerInterceptor] No fallback template found for gender {genderValue}. Created blank Character SO.");
+                TD.Error(TAG, $"No fallback template found for gender {genderValue}. Created blank Character SO.", this);
             }
         }
 
-        // 5) Now apply all server‐side fields onto our new instance
-
-        // Display name
         character.CharacterName = dto.CharacterName;
-
-        // Server ID
         character.SetProperty("CharacterId", dto.CharacterId);
-
-        // Level & XP
-        if (dto.Level > 0)
-        {
+        if (dto.Level != character.FindProperty("Level")?.floatValue)
             character.SetProperty("Level", dto.Level);
-        }
-        if (dto.Experience > 0)
-        {
-            character.SetProperty("Experience", dto.Experience);
-        }
-
-        // Overwrite Gender on the instance (in case template had something else)
+        character.SetProperty("Experience", dto.Experience);
         character.Gender = genderValue;
 
-        // 6) Sanity check
         if (character.Prefab == null)
         {
-            Debug.LogError($"[CharacterServerInterceptor] Character {dto.CharacterName} has no Prefab! UI instantiation will fail.");
+            TD.Error(TAG, $"Character {dto.CharacterName} has no Prefab! UI instantiation will fail.", this);
         }
 
         if (debugCharacterConversion)
         {
-            Debug.Log($"[CharacterServerInterceptor] Conversion complete: " +
-                      $"{character.CharacterName} | Prefab: {(character.Prefab != null ? character.Prefab.name : "NULL")} | " +
-                      $"Image: {(character.CreateCharacterImage != null ? "Present" : "NULL")}");
+            TD.Info(TAG, $"Conversion complete: {character.CharacterName} | Prefab: {(character.Prefab ? character.Prefab.name : "NULL")} | Image: {(character.CreateCharacterImage ? "Present" : "NULL")}", this);
         }
 
         return character;
     }
 
-
-    /// <summary>
-    /// Find the best matching template for a character class and gender
-    /// </summary>
     private Character FindBestMatchingTemplate(string characterClass, DevionGames.CharacterSystem.Gender gender)
     {
         if (CharacterManager.Database == null || CharacterManager.Database.items == null)
         {
-            Debug.LogError("[CharacterServerInterceptor] CharacterManager.Database is null!");
+            TD.Error(TAG, "CharacterManager.Database is null!", this);
             return null;
         }
 
-        // Try exact match first
-        var exactMatch = CharacterManager.Database.items.FirstOrDefault(x =>
-            x.Name == characterClass && x.Gender == gender);
+        var exactMatch = CharacterManager.Database.items.FirstOrDefault(x => x.Name == characterClass && x.Gender == gender);
+        if (exactMatch != null) return exactMatch;
 
-        if (exactMatch != null)
-        {
-            return exactMatch;
-        }
+        var ciMatch = CharacterManager.Database.items.FirstOrDefault(x => string.Equals(x.Name, characterClass, System.StringComparison.OrdinalIgnoreCase) && x.Gender == gender);
+        if (ciMatch != null) return ciMatch;
 
-        // Try case-insensitive match
-        var caseInsensitiveMatch = CharacterManager.Database.items.FirstOrDefault(x =>
-            string.Equals(x.Name, characterClass, System.StringComparison.OrdinalIgnoreCase) && x.Gender == gender);
+        var partialMatch = CharacterManager.Database.items.FirstOrDefault(x => x.Name.Contains(characterClass) && x.Gender == gender);
+        if (partialMatch != null) return partialMatch;
 
-        if (caseInsensitiveMatch != null)
-        {
-            return caseInsensitiveMatch;
-        }
+        var reversePartial = CharacterManager.Database.items.FirstOrDefault(x => characterClass.Contains(x.Name) && x.Gender == gender);
+        if (reversePartial != null) return reversePartial;
 
-        // Try partial match (contains)
-        var partialMatch = CharacterManager.Database.items.FirstOrDefault(x =>
-            x.Name.Contains(characterClass) && x.Gender == gender);
-
-        if (partialMatch != null)
-        {
-            return partialMatch;
-        }
-
-        // Try reverse partial match
-        var reversePartialMatch = CharacterManager.Database.items.FirstOrDefault(x =>
-            characterClass.Contains(x.Name) && x.Gender == gender);
-
-        if (reversePartialMatch != null)
-        {
-            return reversePartialMatch;
-        }
-
-        // Log available templates for debugging
         if (debugCharacterConversion)
         {
-            Debug.Log($"[CharacterServerInterceptor] Available templates for debugging:");
+            TD.Info(TAG, "Available templates for debugging:", this);
             foreach (var item in CharacterManager.Database.items)
             {
-                Debug.Log($"  - {item.Name} ({item.Gender})");
+                TD.Info(TAG, $"  - {item.Name} ({item.Gender})", this);
             }
         }
 
         return null;
     }
 
-    /// <summary>
-    /// Convert Character to DTO for server
-    /// </summary>
     private CharacterDTO ConvertToDTO(Character character)
     {
         return new CharacterDTO

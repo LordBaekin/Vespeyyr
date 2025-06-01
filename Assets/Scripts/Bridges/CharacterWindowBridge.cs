@@ -1,32 +1,34 @@
-// Assets/Scripts/Bridges/CharacterWindowBridge.cs
-
 using System.Collections.Generic;
 using UnityEngine;
 using DevionGames.CharacterSystem;
-using Vespeyr.Network; // Or your correct DTO/bridge namespace
+using Vespeyr.Network;
 using Assets.Scripts.Data;
+using TagDebugSystem;
 
 public class CharacterWindowBridge : MonoBehaviour
 {
     [Header("References")]
-    public CharacterWindow characterWindow; // Assign in inspector
+    public CharacterWindow characterWindow;
 
     [Tooltip("Optional: Prefab mapping by class/job name if needed.")]
-    public List<CharacterPrefabMapping> prefabMappings; // See struct below
+    public List<CharacterPrefabMapping> prefabMappings;
 
     /// <summary>
     /// Fetch characters from API and populate Devion Games UI.
     /// </summary>
     public async void PopulateFromServer(string worldKey)
     {
+        TD.Info(Tags.CharacterSystem, $"[PopulateFromServer] worldKey={worldKey}");
+
         try
         {
             List<CharacterDTO> apiCharacters = await DVGApiBridge.GetCharacters(worldKey);
+            TD.Info(Tags.CharacterSystem, $"[PopulateFromServer] Received {apiCharacters?.Count ?? 0} characters from API.");
             PopulateCharacterList(apiCharacters);
         }
         catch (System.Exception ex)
         {
-            Debug.LogError($"[CharacterWindowBridge] Failed to fetch or populate characters: {ex}");
+            TD.Error(Tags.CharacterSystem, $"[PopulateFromServer] Exception: {ex.Message}\n{ex.StackTrace}");
             characterWindow?.Clear();
         }
     }
@@ -38,48 +40,51 @@ public class CharacterWindowBridge : MonoBehaviour
     {
         if (characterWindow == null)
         {
-            Debug.LogError("[CharacterWindowBridge] CharacterWindow reference not set!");
+            TD.Error(Tags.CharacterSystem, "[PopulateCharacterList] CharacterWindow reference not set!");
             return;
         }
 
         characterWindow.Clear();
         if (apiCharacters == null)
+        {
+            TD.Warning(Tags.CharacterSystem, "[PopulateCharacterList] apiCharacters was null.");
             return;
+        }
 
         List<Character> devionCharacters = new List<Character>();
 
         foreach (var dto in apiCharacters)
         {
             Character newCharacter = ScriptableObject.CreateInstance<Character>();
-
-            // Set base fields
             newCharacter.CharacterName = dto.CharacterName;
             newCharacter.Name = !string.IsNullOrEmpty(dto.Name) ? dto.Name : dto.CharacterName;
 
-            // CRITICAL: Store the server's CharacterId
             if (!string.IsNullOrEmpty(dto.CharacterId))
             {
-                newCharacter.SetProperty("CharacterId", dto.CharacterId); // <- ADD THIS
+                newCharacter.SetProperty("CharacterId", dto.CharacterId);
             }
 
-            // Gender handling
             try
             {
-                if (!string.IsNullOrEmpty(dto.Gender))
+                if (!string.IsNullOrEmpty(dto.Gender) && System.Enum.TryParse(dto.Gender, true, out Gender genderValue))
                 {
-                    if (System.Enum.TryParse(dto.Gender, true, out Gender genderValue))
-                        newCharacter.Gender = genderValue;
-                    else
-                        newCharacter.Gender = Gender.Male;
+                    newCharacter.Gender = genderValue;
+                }
+                else
+                {
+                    newCharacter.Gender = Gender.Male;
                 }
             }
-            catch { newCharacter.Gender = Gender.Male; }
+            catch
+            {
+                newCharacter.Gender = Gender.Male;
+            }
 
-            // Description
             if (!string.IsNullOrEmpty(dto.Description))
+            {
                 newCharacter.Description = dto.Description;
+            }
 
-            // Prefab assignment - your existing logic is correct
             GameObject prefab = null;
             if (prefabMappings != null && prefabMappings.Count > 0 && !string.IsNullOrEmpty(dto.Class))
             {
@@ -89,7 +94,6 @@ public class CharacterWindowBridge : MonoBehaviour
             }
             newCharacter.Prefab = prefab;
 
-            // Set custom properties - your existing logic is correct
             if (!string.IsNullOrEmpty(dto.Class))
                 newCharacter.SetProperty("Class", dto.Class);
             if (dto.Level > 0)
@@ -98,20 +102,18 @@ public class CharacterWindowBridge : MonoBehaviour
                 newCharacter.SetProperty("Experience", dto.Experience);
             if (!string.IsNullOrEmpty(dto.Faction))
                 newCharacter.SetProperty("Faction", dto.Faction);
-
             if (dto.Attributes != null)
                 newCharacter.SetProperty("Attributes", dto.Attributes);
 
+            TD.Info(Tags.CharacterSystem, $"Added character: {newCharacter.CharacterName} (Class={dto.Class}, Level={dto.Level})");
             devionCharacters.Add(newCharacter);
         }
 
         characterWindow.Add(devionCharacters.ToArray());
+        TD.Info(Tags.CharacterSystem, $"[PopulateCharacterList] {devionCharacters.Count} characters populated into CharacterWindow.");
     }
 }
 
-/// <summary>
-/// Maps a class/job name to a prefab.
-/// </summary>
 [System.Serializable]
 public class CharacterPrefabMapping
 {

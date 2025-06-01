@@ -1,13 +1,9 @@
-﻿// SceneUIManager.cs
-using UnityEngine;
+﻿using UnityEngine;
 using DevionGames.LoginSystem.Configuration;
 using DevionGames.UIWidgets;
 using DevionGames.LoginSystem;
 using TagDebugSystem;
 
-/// <summary>
-/// SceneUIManager provides central access to UI elements in the login scene.
-/// </summary>
 public class SceneUIManager : MonoBehaviour
 {
     public static SceneUIManager Instance { get; private set; }
@@ -35,6 +31,7 @@ public class SceneUIManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+
         Instance = this;
         TD.Info(TAG, "SceneUIManager initialized", this);
         ValidateReferences();

@@ -15,14 +15,17 @@ namespace DevionGames.LoginSystem.Configuration
             }
         }
 
-
         [Header("Server Settings:")]
-        public string serverAddress = "https://deviongames.com/modules/demo/LoginSystem/php/";
-        public string createAccount = "createAccount.php";
-        public string login = "login.php";
-        public string recoverPassword = "recoverPassword.php";
-        public string resetPassword = "resetPassword.php";
-        public string accountKey = "Account";
+        public string serverAddress = "http://localhost:5000/";
 
+        [Header("Authentication Endpoints:")]
+        public string createAccount = "auth/register";
+        public string login = "auth/login";
+        public string recoverPassword = "auth/request-password-reset";
+        public string resetPassword = "auth/reset-password";
+        public string refreshToken = "auth/refresh";
+
+        [Header("Legacy Settings:")]
+        public string accountKey = "Account";  // Still used for backward compatibility
     }
 }

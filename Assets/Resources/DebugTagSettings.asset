@@ -101,4 +101,28 @@ MonoBehaviour:
     color: {r: 0, g: 1, b: 1, a: 1}
     isActive: 1
     isEssential: 0
+  - tagName: CharacterSystem
+    color: {r: 0, g: 1, b: 1, a: 1}
+    isActive: 1
+    isEssential: 0
+  - tagName: CharacterServer
+    color: {r: 0, g: 1, b: 1, a: 1}
+    isActive: 1
+    isEssential: 0
+  - tagName: UnifiedData
+    color: {r: 0, g: 1, b: 1, a: 1}
+    isActive: 1
+    isEssential: 0
+  - tagName: HybridBridge
+    color: {r: 0, g: 1, b: 1, a: 1}
+    isActive: 1
+    isEssential: 0
+  - tagName: DevionGamesAdapter
+    color: {r: 0, g: 1, b: 1, a: 1}
+    isActive: 1
+    isEssential: 0
+  - tagName: Authentication
+    color: {r: 0, g: 1, b: 1, a: 1}
+    isActive: 1
+    isEssential: 0
   presets: []
